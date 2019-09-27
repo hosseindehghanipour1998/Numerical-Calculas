@@ -52,8 +52,8 @@ class Conversion:
 
     # The main function that converts given infix expression
     # to postfix expression
-    def infixToPostfix(self, exp):
-
+    def infixToPostfix(self, exp , x):
+        result = 0 ;
         # Iterate over the expression for conversion
         for i in exp:
             # If the character is an operand,
