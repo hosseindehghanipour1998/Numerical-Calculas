@@ -16,9 +16,11 @@ def bairstow( roots_list , coefficients_list , r0 , s0 ):
     #if there was only one Number in the input
     if(n == 0):
         return None
+    
     # Polynomial Degree 1
     elif ( n == 1 ):
         return float(coefficients_list[1]/coefficients_list[0])*-1
+    
     #polynomial Degree 2
     elif ( n == 2 ):
         #b^2 - 4ac
@@ -30,6 +32,16 @@ def bairstow( roots_list , coefficients_list , r0 , s0 ):
         roots_list.append(root1)
         roots_list.append(root2)
         
+    #if the polynomial had a degree > 2
+     else:
+         
+         b = [0] * ( n + 1 )
+         #Calculate B's
+         b[n] = coefficients_list[n]
+         b[n-1] = coefficients_list[n-1] + r0*b[n]
+         for i in range(n-2 , -1 , -1):
+             b[i] = coefficients_list[i] + r0 * b[i+1] + s0 * b[i+2]
+
     
 ################### MATRIX OPERATIONS #################33
 
@@ -51,6 +63,7 @@ def main():
     #inputCoefficients = list(reversed(input().split(' ')))
     inputCoefficients = [-6 , 1 , 1]
     #inputCoefficients = atoi(inputCoefficients)
+    
     #NEEDED ELEMENTS
     roots_list = [] 
     s0 = 0.1
