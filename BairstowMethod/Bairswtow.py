@@ -38,10 +38,16 @@ def bairstow( roots_list , coefficients_list , r0 , s0 ):
          b = [0] * ( n + 1 )
          #Calculate B's
          b[n] = coefficients_list[n]
-         b[n-1] = coefficients_list[n-1] + r0*b[n]
+         b[n-1] = coefficients_list[n-1] + r0 * b[n]
          for i in range(n-2 , -1 , -1):
              b[i] = coefficients_list[i] + r0 * b[i+1] + s0 * b[i+2]
-
+        #Calculate C's
+        c = [0] * ( n + 1 )
+        c[n] = b[n]
+        c[n-1] = b[n-1] + r0 * c[n] 
+        for i in range(n-2 , -1 , -1):
+            c[i] = b[i] + r0 * c[i+1] + s0 * c[i+2]
+        
     
 ################### MATRIX OPERATIONS #################33
 
