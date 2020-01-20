@@ -14,7 +14,6 @@ def bairstow( roots_list , coefficients_list , r0 , s0 ):
     tolerance = 1E-6
     n = len(coefficients_list) - 1
 
-    
     #if there was only one Number in the input
     if(n == 0):
         return None
