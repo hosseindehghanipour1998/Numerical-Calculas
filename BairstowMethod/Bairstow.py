@@ -16,7 +16,7 @@ def bairstow( roots_list , coefficients_list , r0 , s0 ):
 
     #if there was only one Number in the input
     if(n == 0):
-        return None
+        return coefficients_list[0]
     
     # Polynomial Degree 1
     elif ( n == 1 ):
@@ -89,7 +89,7 @@ def printList(a_message, a_list):
 def sigma(a_list):
     summation = 0 
     for number in a_list :
-        if(number.imag > 0 or numpy.iscomplex(number) == False):
+        if( (number.imag > 0)  or (numpy.iscomplex(number) == False) ):
             summation += number
     return summation
 
@@ -104,9 +104,9 @@ def printOutput(a_complexNumber):
     '''
 def main():
     #Get Input : 
-    #n = input("Enter Polynomial's Degree : ")
-    print("Sample -> Ax^2 + Bx + C => A B C" )
-    print("Enter The Coefficients as said Above: ")
+    n = input()
+    #print("Sample -> Ax^2 + Bx + C => A B C" )
+    #print("Enter The Coefficients as said Above: ")
     inputCoefficients = list(reversed(input().split(' ')))
     inputCoefficients = atoi(inputCoefficients)
     
@@ -114,20 +114,20 @@ def main():
     roots_list = [] 
     s0 = random.random()
     r0 = random.random()
-    
+
     #Printing Coefficients
-    print("Input Coefficints : " , inputCoefficients)
-    print("===========================")
+    #print("Input Coefficints : " , inputCoefficients)
+    #print("===========================")
     
    #Main Function Call
     bairstow(roots_list , inputCoefficients , r0 , s0)
     
     #Printing Calculated Roots
-    printList("Roots : " , roots_list)
-    print("===========================")
+    #printList("Roots : " , roots_list)
+    #print("===========================")
     
     #Printing the output Summation
-    print("Output : ( Positive Roots Summation) ")
+    #print("Output : ( Positive Roots Summation) ")
     summation = sigma(roots_list)
     printOutput(summation)
 ########################################## RUN #############   
