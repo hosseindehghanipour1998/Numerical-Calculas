@@ -55,6 +55,9 @@ def bairstow( roots_list , coefficients_list , r0 , s0 ):
             D1 = calculateDeterminant (-b[0] , c[2] , -b[1] , c[3])
             D2 = calculateDeterminant (c[1] , -b[0] , c[2] , -b[1])
             
+            if (  D == 0 ):
+                return None
+            
             #Delta
             delta_r = float(D1/D)
             r0 = r0 + delta_r
@@ -112,9 +115,10 @@ def main():
     
     #Initial Elemnets and Values
     roots_list = [] 
-    s0 = random.random()
-    r0 = random.random()
-
+    #s0 = random.random()
+    #r0 = random.random()
+    s0 = -1.9
+    r0 = -2.1
     #Printing Coefficients
     #print("Input Coefficints : " , inputCoefficients)
     #print("===========================")
